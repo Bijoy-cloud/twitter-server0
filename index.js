@@ -1,10 +1,10 @@
 const express = require('express')
 const cors = require('cors')
-
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose')
 // mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/test" ,{ useNewUrlParser: true , useUnifiedTopology: true })
 mongoose.connect( "mongodb+srv://Bijoy-admin:BiJoY123@@cluster0.diobp.mongodb.net/myFirstDatabase0?retryWrites=true&w=majority" ,{ useNewUrlParser: true , useUnifiedTopology: true })
-mongoose.connection.once('open',()=>console.log('connection successfull')
+mongoose.connection.once('open',()=>console.log('DB connection successfull')
 ).on('error',(error)=>{
     console.log("the error is",error)
 });
@@ -72,4 +72,4 @@ app.post('/mews',(req,res)=>{
 })
 
 
-app.listen(3000,()=>console.log('listenting at 30000'));
+app.listen(port,()=>console.log('listenting at 30000'));
